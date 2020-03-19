@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Метод слепой печати</title>
+    <link rel="stylesheet" href="Styles.css">
+    <script type="text/javascript">
+        //Задаем функции для генерации случайного текста
+        function generateText(letters, length) {
+            var text = "";
+            for (var i = 0; i < length; i++) {
+                var n = getRandomNumber(letters.length - 1);
+                text = text + letters[n];
+            }
+            return text;
+        }
+
+        function getRandomNumber(max) {
+            return Math.round(Math.random() * max);
+        }
+
+        //Приветствие
+
+        //Описание задания по набору букв в виде функции. Немного изменил текст самого задания, чтобы он стал универсальным.
+        function lettersToReturn(letters, length) {
+            while (true) {
+                alert("Положите 4 пальца левой руки - мизинец, безымянный, средний и " +
+                    "указательный на клавиши ф, ы, в, а. 4 пальца правой руки положите на клавиши" +
+                    " о, л, д, ж \nТеперь набирайте текст. Не смотрите на клавиатуру");
+                var text = generateText(letters, length);
+                var userText = prompt(text);
+                if (userText == text) {
+                    alert("Все верно!");
+                    break;
+                } else {
+                    alert("Вы ошиблись. Повторите ещё раз.");
+                }
+            }
+        }
+
+        //Описание задачи.
+        function lettersToReturn1() {
+            lettersToReturn(["ф", "а"], 10);
+            lettersToReturn(["ы", "в"], 10);
+            lettersToReturn(["о", "ж"], 10);
+            lettersToReturn(["л", "д"], 10);
+            alert("Поздравляю, вы справились со всем заданиями и открыли секретный уровень! Это будет проверкой на прочность." +
+                "\nОбратите внимание, что указательный палец левой руки отвечает также за букву П, указательный палец правой руки за букву Р " +
+                " и мизинец правой руки за букву Э");
+            var secondRow = ["ф", "ы", "в", "а", "п", "р", "о", "л", "д", "ж", "э"];
+            lettersToReturn(secondRow, 10);
+            //Почему то не заработал при попытке задать буквы в виде массива, если я ссылаюсь более чем на одну букву массива.
+            /*var firstRow = ["й","ц","у","к","е","н","г","ш","щ","з","х","ъ"];
+            var secondRow = ["ф","ы","в","а","п","р","о","л","д","ж","э"];
+            var firdRow = ["я","ч","с","м","и","т","ь","б","ю"];
+            lettersToReturn(secondRow[0] [3], 10);
+            lettersToReturn(secondRow[1] [2], 10);
+            lettersToReturn(secondRow[6] [9], 10);
+            lettersToReturn(secondRow[7] [8], 10);*/
+            alert("Поздравляю, вы чемпион!");
+        }
+
+    </script>
+</head>
+<body>
+<header>
+    <a href="index.html">Главная</a>
+    <a href="Sonya.html">Соня</a>
+    <a href="Cats.html">Фото котиков</a>
+    <a href="Riddles.html">Загадки</a>
+    <a href="Geussinggame.html">Угадай числа</a>
+    <a href="BlindPrinting.html">Слепая печать</a>
+</header>
+<h1><b>Обучение слепой печати</b></h1>
+<main>
+    <a href="#" onClick="lettersToReturn1();">Учиться</a>
+</main>
+<footer>
+    Все права защищены 2019 &copy; Свиридов Влдаимир
+</footer>
+</body>
+</html>
